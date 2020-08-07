@@ -15,6 +15,10 @@
     <?php 
     echo $_GET['id'];
     ?>
-    <h2>ksadj laksj dlkasj weiofj jea fjdiosdj fioej sdio</h2>
+    <h2>
+        <?php 
+        echo file_get_contents("data/".$_GET['id']);
+        ?>
+    </h2>
 </body>
 </html>
