@@ -60,6 +60,11 @@ function print_title()
     <?php if(isset($_GET['id'])) 
     { ?>
       <a href="Update.php?id=<?=$_GET['id'];?>">Update</a>
+
+      <form action="delete_process.php" method="post">
+        <input type="hidden" name="id" value="<?=$_GET['id']?>">
+        <input type="submit" value="삭제">
+      </form>
     <?php 
     } ?>
     <h2>
