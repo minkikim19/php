@@ -9,9 +9,18 @@ $filtered = array
 $sql = 
 "
     DELETE
-        FROM topic
-        WHERE id={$filtered['id']}
+        FROM topic;
+        WHERE author_id= {$filtered['id']}
 ";
+mysqli_query($conn, $sql);
+
+$sql = 
+"
+    DELETE
+        FROM author
+        WHERE id= {$filtered['id']}
+";
+//exit;삭제 명령 비활성화
 $result = mysqli_query($conn, $sql);//정보 전달을 위한 함수 사용
 if ($result == false)
     {
@@ -20,6 +29,6 @@ if ($result == false)
     }
     else
     {
-        echo 'Delete Succeed. <a href = index.php>return</a>';
+        header('Location: author.php');
     }
 ?>
