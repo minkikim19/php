@@ -8,8 +8,18 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">새로 만들기</a>
 </p>
+
+<form>
+    <p>
+        <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">전체</option>
+        </select>
+        제목: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="검색" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -24,6 +34,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Movie[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Rating)
             </th>
             <th></th>
         </tr>
@@ -42,6 +55,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">편집</a> |
